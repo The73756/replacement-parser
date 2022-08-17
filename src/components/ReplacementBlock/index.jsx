@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 
 import { AppContext } from '../../App';
 
+import styles from './ReplacementBlock.module.scss';
+
 export const ReplacementBlock = () => {
-  const { items } = useContext(AppContext);
+  const { items, updItems } = useContext(AppContext);
 
   const names = [
     'Замена главный корпус',
@@ -16,9 +18,14 @@ export const ReplacementBlock = () => {
 
   return items.map((item, index) => {
     return (
-      <div key={index}>
-        <Link to={`zamena/${item}`}>{names[index]}</Link>
-      </div>
+      <Link
+        to={`zamena/${items.indexOf(item) + 1}`}
+        key={index}
+        className={`${styles.item} ${index === 4 ? styles.itemBig : ''} ${
+          updItems.includes(item) ? styles.changed : ''
+        }`}>
+        {names[index]}
+      </Link>
     );
   });
 };

@@ -1,0 +1,19 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  width: 100%;
+  min-height: 150px;
+  font-size: 22px;
+  color: #fff;
+  background-color: #860986;
+}
+
+.itemBig {
+  grid-column: 2 span;
+}
+
+.changed {
+  background-color: #080;
+}

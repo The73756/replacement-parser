@@ -3,16 +3,25 @@ import { useEffect, useState, createContext, useRef } from 'react';
 import axios from 'axios';
 
 import { Home } from './pages/Home';
-import { Frame } from './pages/Frame';
+import { Frame } from './pages/ReplFrame';
 
 import './scss/main.scss';
 
 export const AppContext = createContext({});
 
+const names = [
+  'Замена главный корпус',
+  'Замена 4 корпус',
+  'Расписание 1-2 курс',
+  'Расписание 3-4 курс',
+  'Рассписание - 4 курс',
+];
+
 export const App = () => {
   const [items, setItems] = useState([]); //список ХЕШЕЙ ссылок на замену
-  const [updItems, setUpdItems] = useState([]); //список ХЕШЕЙ измененных ссылок
+  const [updatedItems, setupdatedItems] = useState([]); //список ХЕШЕЙ измененных ссылок
   const [loading, setLoading] = useState(true);
+  const [isFirstLoad, setIsFirstLoad] = useState(false);
   const isCheked = useRef(false);
 
   useEffect(() => {
@@ -33,24 +42,30 @@ export const App = () => {
   useEffect(() => {
     const prevData = localStorage.getItem('data');
 
+    if (!prevData) {
+      localStorage.setItem('data', JSON.stringify(items));
+      return setIsFirstLoad(true);
+    }
+
     if (prevData && items.length) {
       const prevDataArr = JSON.parse(prevData);
       const updData = items.filter((item) => !prevDataArr.includes(item));
 
-      setUpdItems(updData);
+      setupdatedItems(!isFirstLoad ? updData : []); //что бы при первой загрузке все не выделялось как измененное
       isCheked.current = true;
     }
 
-    if (isCheked.current || !prevData) {
+    if (isCheked.current) {
       localStorage.setItem('data', JSON.stringify(items));
     }
   }, [items]);
-  console.log(updItems);
+  // console.log(updatedItems);
+  // console.log(isFirstLoad);
 
   return (
     <main>
       <div className='container'>
-        <AppContext.Provider value={{ items, loading, updItems }}>
+        <AppContext.Provider value={{ items, loading, updatedItems, names }}>
           <Routes>
             <Route path='/' element={<Home items={items} />} />
             <Route path='zamena/:id' element={<Frame items={items} />} />

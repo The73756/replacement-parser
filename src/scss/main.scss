@@ -1,3 +1,7 @@
+:root {
+  --index: 1vh + 1vw;
+}
+
 html {
   height: 100%;
   box-sizing: border-box;
@@ -15,7 +19,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100%;
-  font-size: 16px;
+  font-size: calc(var(--index));
 }
 
 img {
@@ -55,11 +59,4 @@ a {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
-}
-
-.updated {
-  &::before {
-    content: "Updated";
-    color: #080;
-  }
 }

@@ -6,7 +6,7 @@ import { AppContext } from '../../App';
 import styles from './ReplFrameBlock.module.scss';
 
 export const ReplFrameBlockmodule = () => {
-  const { items, updatedItems, names, fetchItems } = useContext(AppContext);
+  const { items, updatedItems, names, fetchItems} = useContext(AppContext);
   const { id } = useParams();
   const item = items[id - 1];
   const isUpdated = updatedItems.includes(item);
@@ -18,8 +18,6 @@ export const ReplFrameBlockmodule = () => {
           На главную
         </Link>
         <h2 className={styles.title}>{names[id - 1]}</h2>
-        {/* вынести в отдельный компонент */}
-
         <button onClick={fetchItems} className={styles.fetchButton}>
           Обновить
         </button>

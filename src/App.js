@@ -62,17 +62,15 @@ export const App = () => {
     if (isCheked.current) {
       localStorage.setItem('data', JSON.stringify(items));
     }
-  }, [items]);
-  // console.log(updatedItems);
-  // console.log(isFirstLoad);
+  }, [items, isFirstLoad]);
 
   return (
     <main>
       <div className='container'>
         <AppContext.Provider value={{ items, loading, updatedItems, names, fetchItems }}>
           <Routes>
-            <Route path='/' element={<Home items={items} />} />
-            <Route path='zamena/:id' element={<Frame items={items} />} />
+            <Route path='/' element={<Home />} />
+            <Route path='zamena/:id' element={<Frame />} />
           </Routes>
         </AppContext.Provider>
       </div>

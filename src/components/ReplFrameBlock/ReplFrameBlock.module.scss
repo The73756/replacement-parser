@@ -17,10 +17,14 @@
   &::before {
     content: "Updated";
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 5px;
+    top: 120px;
     font-size: calc(var(--index) * 1.3);
     color: #080;
+  }
+
+  .frame {
+    border: 2px solid #080;
   }
 }
 

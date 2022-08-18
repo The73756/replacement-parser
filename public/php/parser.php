@@ -1,5 +1,11 @@
 <?php
-require_once('./phpQuery.php');
+/*
+	Download 
+	https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/phpquery/phpQuery-0.9.5.386-onefile.zip
+	And move to public/php
+*/ 
+
+require_once('./phpQuery.php'); 
 
 function curlGetPage($url, $referer = 'https://google.com/')
 {

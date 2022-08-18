@@ -12,12 +12,12 @@
 - **React Router 6**
 - **React Skeleton**
 - **SCSS + CSS modules**
-- **PHP + [DiDom 2.0](https://github.com/Imangazaliev/DiDOM)**
+- **PHP + ~~[DiDom 2.0](https://github.com/Imangazaliev/DiDOM)~~ PHPQuery** - ибо первый не запустился на моем хостинге
 
 К сожалению без Typescript =(
 
 16.08 21:11: Готова технодемка (рабочий парсер и базовые страницы - общая и конкретной замены)
-дальше дизайн и вот это вот всею
+дальше дизайн и вот это вот все
 
 # Реализовано:
 

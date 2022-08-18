@@ -28,7 +28,7 @@ export const App = () => {
     setLoading(true);
 
     try {
-      const { data } = await axios.get('/responce.json'); // здесь будет обращение к php/parser.php (response такого же вида)
+      const { data } = await axios.get('/response.json'); // здесь будет обращение к php/parser.php (response такого же вида)
       const response = data.map((str) => str.split('d/')[1].split('/')[0]); // /(?<=d\/)(.*?)(?=\/)/ - не работает в сафари!!!!
 
       setItems(response);

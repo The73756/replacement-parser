@@ -1,28 +1,31 @@
 <?php
-require_once('DiDom/ClassAttribute.php');
-require_once('DiDom/Document.php');
-require_once('DiDom/Element.php');
-require_once('DiDom/Encoder.php');
-require_once('DiDom/Errors.php');
-require_once('DiDom/Query.php');
-require_once('DiDom/StyleAttribute.php');
-require_once('DiDom/Node.php');
-require_once('DiDom/Exceptions/InvalidSelectorException.php');
-use DiDom\ClassAttribute;
-use DiDom\Document;
-use DiDom\Element;
-use DiDom\Encoder;
-use DiDom\Errors;
-use DiDom\Query;
-use DiDom\StyleAttribute;
-use DiDom\Exceptions\InvalidSelectorException;
-use DiDom\Node;
+require_once('./phpQuery.php');
 
-$document = new Document('https://www.chtotib.ru/studentu/', true);
+function curlGetPage($url, $referer = 'https://google.com/')
+{
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36');
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_REFERER, $referer);
+	curl_setopt($ch, CURLOPT_HEADER, 0);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	$response = curl_exec($ch);	
+	curl_close($ch);
+
+	return $response;
+}
+
+$page = curlGetPage('https://www.chtotib.ru/studentu/');
+$document = phpQuery::newDocument($page);
 $posts = $document->find('a[href^=https://drive.google.com/]');
 $resultArr = [];
 
 foreach($posts as $post) {
 	array_push($resultArr, $post->getAttribute('href'));
 }
+phpQuery::unloadDocuments();
+
 echo json_encode($resultArr);

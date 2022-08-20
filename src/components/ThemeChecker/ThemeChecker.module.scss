@@ -35,20 +35,20 @@
 }
 
 .theme__icon {
-  left: 0.75rem;
-  top: 0.75rem;
+  left: 0.75em;
+  top: 0.75em;
   display: block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.5em;
+  height: 1.5em;
 }
 
 .theme__iconPart {
-  left: calc(50% - 0.5rem);
-  top: calc(50% - 0.5rem);
+  left: calc(50% - 0.5em);
+  top: calc(50% - 0.5em);
   border-radius: 50%;
-  width: 1rem;
-  height: 1rem;
-  box-shadow: 0.4rem -0.4rem 0 0.5rem #fff inset;
+  width: 1em;
+  height: 1em;
+  box-shadow: 0.4em -0.4em 0 0.5em #fff inset;
   transform: scale(0.5);
   transition:
     box-shadow var(--dur) ease-in-out,
@@ -57,49 +57,52 @@
 }
 
 .theme__iconPart ~ .theme__iconPart {
-  left: calc(50% - 0.05rem);
+  left: calc(50% - 0.05em);
   top: 50%;
-  border-radius: 0.05rem;
-  width: 0.1rem;
-  height: 0.2rem;
+  border-radius: 0.05em;
+  width: 0.1em;
+  height: 0.2em;
   box-shadow: none;
   background-color: #fff;
-  transform: rotate(0) translateY(0.5rem);
+  transform: rotate(0) translateY(0.5em);
   transform-origin: 50% 0;
 }
 
 .theme__iconPart:nth-child(3) {
-  transform: rotate(45deg) translateY(0.5rem);
+  transform: rotate(45deg) translateY(0.5em);
 }
 
 .theme__iconPart:nth-child(4) {
-  transform: rotate(90deg) translateY(0.5rem);
+  transform: rotate(90deg) translateY(0.5em);
 }
 
 .theme__iconPart:nth-child(5) {
-  transform: rotate(135deg) translateY(0.5rem);
+  transform: rotate(135deg) translateY(0.5em);
 }
 
 .theme__iconPart:nth-child(6) {
-  transform: rotate(180deg) translateY(0.5rem);
+  transform: rotate(180deg) translateY(0.5em);
 }
 
 .theme__iconPart:nth-child(7) {
-  transform: rotate(225deg) translateY(0.5rem);
+  transform: rotate(225deg) translateY(0.5em);
 }
 
 .theme__iconPart:nth-child(8) {
-  transform: rotate(270deg) translateY(0.5rem);
+  transform: rotate(270deg) translateY(0.5em);
 }
 
 .theme__iconPart:nth-child(9) {
-  transform: rotate(315deg) translateY(0.5rem);
+  transform: rotate(315deg) translateY(0.5em);
 }
 
 .theme__label,
 .theme__toggle,
 .theme__toggleWrap {
   position: relative;
+  display: block;
+  margin-left: auto;
+  font-size: calc(var(--index) / 3.5); /* Настройка размера */
 }
 
 .theme__toggle,
@@ -111,10 +114,10 @@
   -webkit-appearance: none;
   appearance: none;
   border-radius: 25% / 50%;
-  padding: 0.25rem;
-  width: 6rem;
-  height: 3rem;
-  box-shadow: 0 0 0 0.125rem var(--primaryT);
+  padding: 0.25em;
+  width: 6em;
+  height: 3em;
+  box-shadow: 0 0 0 0.125em var(--primaryT);
   background-color: #fbedb6;
   transition:
     background-color var(--dur) ease-in-out,
@@ -126,8 +129,8 @@
 .theme__toggle::before {
   content: "";
   border-radius: 50%;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.5em;
+  height: 2.5em;
   background-color: #f4ca25;
   transition:
     background-color var(--dur) ease-in-out,
@@ -136,7 +139,7 @@
 
 .theme__toggle:focus {
   outline: transparent;
-  box-shadow: 0 0 0 0.125rem var(--primary);
+  box-shadow: 0 0 0 0.125em var(--primary);
 }
 
 /* cheked */
@@ -146,7 +149,7 @@
 
 .theme__toggle:checked::before,
 .theme__toggle:checked ~ .theme__icon {
-  transform: translateX(3rem);
+  transform: translateX(3em);
 }
 
 .theme__toggle:checked::before {
@@ -158,7 +161,7 @@
 }
 
 .theme__toggle:checked ~ .theme__icon .theme__iconPart:nth-child(1) {
-  box-shadow: 0.2rem -0.2rem 0 0.2rem #fff inset;
+  box-shadow: 0.2em -0.2em 0 0.2em #fff inset;
   transform: scale(1);
 }
 
@@ -167,33 +170,33 @@
 }
 
 .theme__toggle:checked ~ .theme__icon .theme__iconPart:nth-child(2) {
-  transform: rotate(45deg) translateY(0.8rem);
+  transform: rotate(45deg) translateY(0.8em);
 }
 
 .theme__toggle:checked ~ .theme__icon .theme__iconPart:nth-child(3) {
-  transform: rotate(90deg) translateY(0.8rem);
+  transform: rotate(90deg) translateY(0.8em);
 }
 
 .theme__toggle:checked ~ .theme__icon .theme__iconPart:nth-child(4) {
-  transform: rotate(135deg) translateY(0.8rem);
+  transform: rotate(135deg) translateY(0.8em);
 }
 
 .theme__toggle:checked ~ .theme__icon .theme__iconPart:nth-child(5) {
-  transform: rotate(180deg) translateY(0.8rem);
+  transform: rotate(180deg) translateY(0.8em);
 }
 
 .theme__toggle:checked ~ .theme__icon .theme__iconPart:nth-child(6) {
-  transform: rotate(225deg) translateY(0.8rem);
+  transform: rotate(225deg) translateY(0.8em);
 }
 
 .theme__toggle:checked ~ .theme__icon .theme__iconPart:nth-child(7) {
-  transform: rotate(270deg) translateY(0.8rem);
+  transform: rotate(270deg) translateY(0.8em);
 }
 
 .theme__toggle:checked ~ .theme__icon .theme__iconPart:nth-child(8) {
-  transform: rotate(315deg) translateY(0.8rem);
+  transform: rotate(315deg) translateY(0.8em);
 }
 
 .theme__toggle:checked ~ .theme__icon .theme__iconPart:nth-child(9) {
-  transform: rotate(360deg) translateY(0.8rem);
+  transform: rotate(360deg) translateY(0.8em);
 }

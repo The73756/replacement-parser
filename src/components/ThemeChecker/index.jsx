@@ -1,20 +1,38 @@
-import { useRef, useState, useCallback } from 'react';
+import { useRef, useState, useCallback, useEffect } from 'react';
 
 import styles from './ThemeChecker.module.scss';
 
 export const ThemeChecker = () => {
-  const [isChecked, setIsChecked] = useState(false);
+  let currentTheme = localStorage.getItem('rp-theme');
+  const [theme, setTheme] = useState(currentTheme);
   const checkbox = useRef(null);
+  const isChecked = theme === 'dark' ? true : false;
+
+  useEffect(() => {
+    if (currentTheme) {
+      setTheme(currentTheme);
+    }
+
+    if (currentTheme === 'dark') {
+      document.body.classList.add('dark');
+    }
+
+    if (!currentTheme) {
+      localStorage.setItem('rp-theme', 'light');
+    }
+  }, [currentTheme]);
 
   const handleChangeTheme = useCallback(() => {
-    setIsChecked(checkbox.current.checked);
-    if (checkbox.current.checked) {
+    if (theme === 'light') {
       document.body.classList.add('dark');
+      localStorage.setItem('rp-theme', 'dark');
+      setTheme('dark');
     } else {
       document.body.classList.remove('dark');
+      localStorage.setItem('rp-theme', 'light');
+      setTheme('light');
     }
-    console.log('asdasd', checkbox.current.checked);
-  }, []);
+  }, [theme]);
 
   return (
     <label htmlFor='theme' className={styles.theme}>

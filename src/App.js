@@ -28,7 +28,7 @@ export const App = () => {
     setLoading(true);
 
     try {
-      const { data } = await axios.get('/php/parser.php'); // здесь будет обращение к php/parser.php (response такого же вида)
+      const { data } = await axios.get('/response.json'); // здесь будет обращение к php/parser.php (response такого же вида)
       const response = data.map((str) => str.split('d/')[1].split('/')[0]); // /(?<=d\/)(.*?)(?=\/)/ - не работает в сафари!!!!
 
       setItems(response);
@@ -44,10 +44,10 @@ export const App = () => {
   }, [fetchItems]);
 
   useEffect(() => {
-    const prevData = localStorage.getItem('data');
+    const prevData = localStorage.getItem('rp-data');
 
     if (!prevData) {
-      localStorage.setItem('data', JSON.stringify(items));
+      localStorage.setItem('rp-data', JSON.stringify(items));
       return setIsFirstLoad(true);
     }
 
@@ -60,7 +60,7 @@ export const App = () => {
     }
 
     if (isCheked.current) {
-      localStorage.setItem('data', JSON.stringify(items));
+      localStorage.setItem('rp-data', JSON.stringify(items));
     }
   }, [items, isFirstLoad]);
 

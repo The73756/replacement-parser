@@ -1,11 +1,15 @@
 import { ReplBlock } from '../components/ReplBlock';
+import { ThemeChecker } from '../components/ThemeChecker';
 
 import '../scss/main.scss';
 
 export const Home = () => {
   return (
-    <div className='items'>
-      <ReplBlock />
-    </div>
+    <>
+      <ThemeChecker />
+      <div className='items'>
+        <ReplBlock />
+      </div>
+    </>
   );
 };

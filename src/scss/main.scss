@@ -1,11 +1,19 @@
 :root {
   --index: 1vh + 1vw;
+  --light-color: #fff;
+  --dark-color: #000;
+  --primary: #253df4;
+  --primaryT: #253df400;
+  --dur: 0.3s;
+  --bg: #fff;
+  --main-color: #5eaef4;
 }
 
 html {
   height: 100%;
   box-sizing: border-box;
   font-family: var(--font-family, sans-serif);
+  font-size: calc(var(--index) / 1.5);
   -webkit-text-size-adjust: 100%;
 }
 
@@ -13,13 +21,18 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+  transition: background-color var(--dur) ease-in-out;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100%;
-  font-size: calc(var(--index));
+  background-color: var(--bg);
+}
+
+.dark {
+  --main-color: #4c30ba;
 }
 
 img {

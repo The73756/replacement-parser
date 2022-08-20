@@ -6,6 +6,7 @@ export const ThemeChecker = () => {
   let currentTheme = localStorage.getItem('rp-theme');
   const [theme, setTheme] = useState(currentTheme);
   const checkbox = useRef(null);
+  const isMount = useRef(false);
   const isChecked = theme === 'dark' ? true : false;
 
   useEffect(() => {
@@ -17,9 +18,15 @@ export const ThemeChecker = () => {
       document.body.classList.add('dark');
     }
 
-    if (!currentTheme) {
-      localStorage.setItem('rp-theme', 'light');
+    if (!currentTheme && isMount.current) {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches && isMount.current) {
+        localStorage.setItem('rp-theme', 'dark');
+      } else {
+        localStorage.setItem('rp-theme', 'light');
+      }
     }
+
+    isMount.current = true;
   }, [currentTheme]);
 
   const handleChangeTheme = useCallback(() => {

@@ -7,6 +7,13 @@
   --dur: 0.3s;
   --bg: #fff;
   --main-color: #5eaef4;
+  --text-color: #000;
+  --error-color: #f00;
+}
+
+.dark {
+  --main-color: #4c30ba;
+  --text-color: #fff;
 }
 
 // @media (prefers-color-scheme: dark) {
@@ -34,11 +41,8 @@ body {
   min-width: 320px;
   min-height: 100%;
   font-size: calc(var(--index) / 2);
+  color: var(--text-color);
   background-color: var(--bg);
-}
-
-.dark {
-  --main-color: #4c30ba;
 }
 
 img {

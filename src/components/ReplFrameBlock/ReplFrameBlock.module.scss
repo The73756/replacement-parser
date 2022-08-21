@@ -11,6 +11,8 @@
 
 .title {
   text-align: center;
+  color: var(--text-color);
+  transition: color var(--dur) ease-in-out;
 }
 
 .updated {

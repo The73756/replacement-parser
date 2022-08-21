@@ -3,7 +3,7 @@ import { useRef, useState, useCallback, useEffect } from 'react';
 import styles from './ThemeChecker.module.scss';
 
 export const ThemeChecker = () => {
-  let currentTheme = localStorage.getItem('rp-theme');
+  const currentTheme = localStorage.getItem('rp-theme');
   const [theme, setTheme] = useState(currentTheme);
   const checkbox = useRef(null);
   const isMount = useRef(false);

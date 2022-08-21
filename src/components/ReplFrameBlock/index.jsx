@@ -6,7 +6,7 @@ import { AppContext } from '../../App';
 import styles from './ReplFrameBlock.module.scss';
 
 export const ReplFrameBlockmodule = () => {
-  const { items, updatedItems, names, fetchItems} = useContext(AppContext);
+  const { items, updatedItems, names, fetchItems } = useContext(AppContext);
   const { id } = useParams();
   const item = items[id - 1];
   const isUpdated = updatedItems.includes(item);

@@ -37,11 +37,13 @@ export const App = () => {
 
       if (data.length) {
         const response = data.map((str) => str.split('d/')[1].split('/')[0]); // /(?<=d\/)(.*?)(?=\/)/ - не работает в сафари!!!!
+
         setItems(response);
         setLoading(false);
       } else {
         setIsError(true);
-        errorMesage.current = '204. No Content';
+
+        errorMesage.current = '204. No Content'; // По спеке не ошибка
         if (prevItems) {
           setItems(JSON.parse(prevItems));
         }
@@ -49,10 +51,12 @@ export const App = () => {
     } catch (error) {
       setIsError(true);
       errorMesage.current = `${error.response.status}. ${error.response.statusText}`;
-      console.error(error);
+
       if (prevItems) {
         setItems(JSON.parse(prevItems));
       }
+
+      console.error(error);
     }
   }, [prevItems]);
 
@@ -64,6 +68,7 @@ export const App = () => {
     if (!prevItems) {
       localStorage.setItem('rp-data', JSON.stringify(items));
       setPrevItems(JSON.stringify(items));
+
       return setIsFirstLoad(true);
     }
 
@@ -79,8 +84,6 @@ export const App = () => {
       localStorage.setItem('rp-data', JSON.stringify(items));
     }
   }, [items, prevItems, isFirstLoad]);
-
-  console.log(isError, errorMesage.current);
 
   return (
     <>

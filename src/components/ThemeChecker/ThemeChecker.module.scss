@@ -1,5 +1,5 @@
 .theme {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   margin: 20px;
   margin-left: auto;
@@ -101,8 +101,6 @@
 .theme__toggle,
 .theme__toggleWrap {
   position: relative;
-  display: block;
-  margin-left: auto;
   font-size: calc(var(--index) / 3.5); /* Настройка размера */
 }
 

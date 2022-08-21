@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  align-items: center;
+  transition: color var(--dur) ease-in-out;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 20px;
+}
+
+.prevBtn {
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: calc(var(--index) * 0.5);
+  color: #000;
+  background-color: #ccc;
+}

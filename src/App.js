@@ -7,6 +7,7 @@ import { Frame } from './pages/ReplFrame';
 import { ErrorBlock } from './components/ErrorBlock';
 
 import './scss/main.scss';
+import { Header } from './components/Header';
 
 export const AppContext = createContext({});
 
@@ -87,6 +88,7 @@ export const App = () => {
 
   return (
     <>
+    <Header />
       <main>
         <div className='container'>
           {isError ? <ErrorBlock resopnseCode={errorMesage.current} /> : ''}

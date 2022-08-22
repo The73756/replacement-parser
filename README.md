@@ -12,9 +12,9 @@
 
 - **ReactJS 18 + Hooks**
 - **React Router 6**
-- **React Skeleton**
 - **SCSS + CSS modules**
-- **PHP + ~~[DiDom 2.0](https://github.com/Imangazaliev/DiDOM)~~ PHPQuery** - ибо первый не запустился на моем хостинге
+- **[React-loading-skeleton](https://github.com/dvtng/react-loading-skeleton)**
+- **PHP + ~~[DiDom 2.0](https://github.com/Imangazaliev/DiDOM)~~ </br>[PHPQuery](https://code.google.com/archive/p/phpquery/downloads)** - ибо первый не запустился на моем хостинге
 
 К сожалению без Typescript =(
 

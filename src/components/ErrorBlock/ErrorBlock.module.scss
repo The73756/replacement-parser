@@ -1,11 +1,19 @@
 .title {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 24px;
   color: var(--error-color);
   transition: color var(--dur) ease-in-out;
 }
 
 .descr {
+  font-size: 18px;
   color: var(--text-color);
   transition: color var(--dur) ease-in-out;
+}
+
+.date {
+  display: block;
+  font-weight: 700;
+  font-size: 18px;
+  color: #006c09;
 }

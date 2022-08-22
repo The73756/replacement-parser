@@ -2,7 +2,7 @@
   --index: 1vh + 1vw;
   --light-color: #fff;
   --dark-color: #000;
-  --primary: #253df4;
+  --primary: #070f4e;
   --primaryT: #253df400;
   --dur: 0.3s;
   --bg: #fff;
@@ -15,14 +15,7 @@
   --main-color: #4c30ba;
   --text-color: #fff;
   --error-color: #ffc328;
-  --primary: #070f4e;
 }
-
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//     --bg: #5eaef4;
-//   }
-// }
 
 html {
   height: 100%;

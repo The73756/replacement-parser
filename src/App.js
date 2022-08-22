@@ -21,14 +21,15 @@ const titles = [
 
 export const App = () => {
   const [items, setItems] = useState([]); //список ХЕШЕЙ ссылок на замену
-  const [prevItems, setPrevItems] = useState(localStorage.getItem('rp-data')); //JSON ХЕШЕЙ сохраненных в localStorage ссылок
   const [updatedItems, setUpdatedItems] = useState([]); //список ХЕШЕЙ измененных ссылок
+  const [prevItems, setPrevItems] = useState(localStorage.getItem('rp-data')); //JSON ХЕШЕЙ сохраненных в localStorage ссылок
   const [loading, setLoading] = useState(true);
   const [isFirstLoad, setIsFirstLoad] = useState(false);
   const [isError, setIsError] = useState(false);
 
   const isCheked = useRef(false);
   const errorMesage = useRef('');
+  const syncDate = useRef(localStorage.getItem('rp-sync-date')); //флаг обновления данных в localStorage
 
   const fetchItems = useCallback(async () => {
     setLoading(true);
@@ -38,8 +39,10 @@ export const App = () => {
 
       if (data.length) {
         const response = data.map((str) => str.split('d/')[1].split('/')[0]); // /(?<=d\/)(.*?)(?=\/)/ - не работает в сафари!!!!
+        const date = new Date().toLocaleString();
 
         setItems(response);
+        localStorage.setItem('rp-sync-date', date);
       } else {
         setIsError(true);
         errorMesage.current = '204. No Content'; // По спеке не ошибка
@@ -90,7 +93,7 @@ export const App = () => {
         <Header />
         <main>
           <div className='container'>
-            {isError ? <ErrorBlock resopnseCode={errorMesage.current} /> : ''}
+            {isError ? <ErrorBlock resopnseCode={errorMesage.current} syncDate={syncDate.current} /> : ''}
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='zamena/:id' element={<Frame />} />

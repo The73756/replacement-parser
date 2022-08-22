@@ -40,26 +40,24 @@ export const App = () => {
         const response = data.map((str) => str.split('d/')[1].split('/')[0]); // /(?<=d\/)(.*?)(?=\/)/ - не работает в сафари!!!!
 
         setItems(response);
-        setLoading(false);
       } else {
         setIsError(true);
-
         errorMesage.current = '204. No Content'; // По спеке не ошибка
-        if (prevItems) {
-          setItems(JSON.parse(prevItems));
-        }
       }
     } catch (error) {
       setIsError(true);
       errorMesage.current = `${error.response.status}. ${error.response.statusText}`;
-
-      if (prevItems) {
-        setItems(JSON.parse(prevItems));
-      }
-
       console.error(error);
+    } finally {
+      setLoading(false);
+
+      if (isError) {
+        if (prevItems) {
+          setItems(JSON.parse(prevItems));
+        }
+      }
     }
-  }, [prevItems]);
+  }, [prevItems, isError]);
 
   useEffect(() => {
     fetchItems();
@@ -88,18 +86,18 @@ export const App = () => {
 
   return (
     <>
-    <Header />
-      <main>
-        <div className='container'>
-          {isError ? <ErrorBlock resopnseCode={errorMesage.current} /> : ''}
-          <AppContext.Provider value={{ items, loading, updatedItems, names, fetchItems }}>
+      <AppContext.Provider value={{ items, loading, updatedItems, names, fetchItems }}>
+        <Header />
+        <main>
+          <div className='container'>
+            {isError ? <ErrorBlock resopnseCode={errorMesage.current} /> : ''}
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='zamena/:id' element={<Frame />} />
             </Routes>
-          </AppContext.Provider>
-        </div>
-      </main>
+          </div>
+        </main>
+      </AppContext.Provider>
     </>
   );
 };

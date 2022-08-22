@@ -7,7 +7,7 @@ import styles from './Header.module.scss';
 
 export const Header = () => {
   const location = useLocation().pathname;
-  console.log(location);
+
   return (
     <header>
       <div className={`container ${styles.header}`}>

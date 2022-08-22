@@ -1,24 +1,14 @@
-import { useContext } from 'react';
-import { useParams, Link } from 'react-router-dom';
-
-import { AppContext } from '../../App';
-
 import styles from './ReplFrameBlock.module.scss';
 
-export const ReplFrameBlockmodule = () => {
-  const { items, updatedItems, names } = useContext(AppContext);
-  const { id } = useParams();
-  const item = items[id - 1];
-  const isUpdated = updatedItems.includes(item);
-
+export const ReplFrameBlock = ({ frameItem, isUpdated, title }) => {
   return (
-    <article className={`${styles.wrapper} ${isUpdated ? styles.updated : ''}`}>
+    <article className={`wrapper ${isUpdated ? styles.updated : ''}`}>
       <div className={styles.top}>
-        <h2 className={styles.title}>{names[id - 1]}</h2>
+        <h2 className={styles.title}>{title}</h2>
       </div>
       <iframe
         className={styles.frame}
-        src={`https://drive.google.com/file/d/${item}/preview`}
+        src={`https://drive.google.com/file/d/${frameItem}/preview`}
         width='100%' //drive.google.com/file/d/{uniq.id}/preview
         height='100%'
         allow='autoplay'

@@ -11,7 +11,7 @@ import { Header } from './components/Header';
 
 export const AppContext = createContext({});
 
-const names = [
+const titles = [
   'Замена главный корпус',
   'Замена 4 корпус',
   'Расписание 1-2 курс',
@@ -86,7 +86,7 @@ export const App = () => {
 
   return (
     <>
-      <AppContext.Provider value={{ items, loading, updatedItems, names, fetchItems }}>
+      <AppContext.Provider value={{ items, loading, updatedItems, titles, fetchItems }}>
         <Header />
         <main>
           <div className='container'>

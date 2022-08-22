@@ -14,6 +14,8 @@
 .dark {
   --main-color: #4c30ba;
   --text-color: #fff;
+  --error-color: #ffc328;
+  --primary: #070f4e;
 }
 
 // @media (prefers-color-scheme: dark) {
@@ -82,4 +84,36 @@ a {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
+}
+
+.wrapper {
+  position: relative;
+  margin: 0 auto;
+  height: 70vh;
+}
+
+.emptyBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-column: 2 span;
+  margin: 0 auto;
+}
+
+.emptyTitle {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  color: var(--error-color);
+  transition: color var(--dur) ease-in-out;
+}
+
+.emptyDescr {
+  font-size: 20px;
+  text-align: center;
+  color: var(--error-color);
+  transition: color var(--dur) ease-in-out;
 }

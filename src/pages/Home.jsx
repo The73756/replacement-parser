@@ -2,24 +2,33 @@ import { useContext } from 'react';
 
 import { AppContext } from '../App';
 import { ReplBlock } from '../components/ReplBlock';
-import { Skeleton } from '../components/ReplBlock/Skeleton';
+import { ReplBlockEmpty } from '../components/ReplBlock/ReplBlockEmpty';
+
+import { Preloader } from '../components/ReplBlock/Preloader';
 
 import '../scss/main.scss';
 
 export const Home = () => {
-  const { items, loading, updatedItems, names } = useContext(AppContext);
+  const { items, loading, updatedItems, titles } = useContext(AppContext);
+  
+  let elements = [];
 
-  const elements = items.map((item, index) => {
-    const itemObj = {
-      index,
-      indexOf: items.indexOf(item) + 1,
-      isUpdated: updatedItems.includes(item),
-      name: names[index],
-    };
+  if (items.length) {
+    elements = items.map((item, index) => {
+      const itemObj = {
+        index,
+        indexOf: items.indexOf(item) + 1,
+        isUpdated: updatedItems.includes(item),
+        title: titles[index],
+      };
 
-    return <ReplBlock key={index} {...itemObj} />;
-  });
-  const skeletons = [...new Array(5)].map((item, index) => <Skeleton key={index} />);
+      return <ReplBlock key={index} {...itemObj} />;
+    });
+  } else {
+    elements = <ReplBlockEmpty />;
+  }
+
+  const skeletons = [...new Array(5)].map((item, index) => <Preloader key={index} />);
 
   return (
     <>

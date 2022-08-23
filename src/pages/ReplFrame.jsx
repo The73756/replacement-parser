@@ -23,8 +23,6 @@ export const Frame = () => {
       title: titles[arrIdx],
     };
 
-    console.log(updatedItems, itemObj.isUpdated);
-
     element = <ReplFrameBlock key={arrIdx} {...itemObj} />;
   } else {
     element = <ReplFrameBlockEmpty />;

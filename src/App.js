@@ -53,7 +53,6 @@ export const App = () => {
       console.error(error);
     } finally {
       setLoading(false);
-
       if (isError) {
         if (prevItems) {
           setItems(JSON.parse(prevItems));
@@ -62,11 +61,7 @@ export const App = () => {
     }
   }, [prevItems, isError]);
 
-  useEffect(() => {
-    fetchItems();
-  }, [fetchItems]);
-
-  useEffect(() => {
+  const checkPrevItems = useCallback(() => {
     if (!prevItems) {
       localStorage.setItem('rp-data', JSON.stringify(items));
       setPrevItems(JSON.stringify(items));
@@ -85,15 +80,28 @@ export const App = () => {
     if (isCheked.current) {
       localStorage.setItem('rp-data', JSON.stringify(items));
     }
-  }, [items, prevItems, isFirstLoad]);
+  }, [isFirstLoad, items, prevItems]);
+
+  useEffect(() => {
+    fetchItems();
+  }, [fetchItems]);
+
+  useEffect(() => {
+    checkPrevItems();
+  }, [checkPrevItems]);
 
   return (
     <>
-      <AppContext.Provider value={{ items, loading, updatedItems, titles, fetchItems }}>
+      <AppContext.Provider
+        value={{ items, loading, updatedItems, titles, fetchItems, checkPrevItems }}>
         <Header />
         <main>
           <div className='container'>
-            {isError ? <ErrorBlock resopnseCode={errorMesage.current} syncDate={syncDate.current} /> : ''}
+            {isError ? (
+              <ErrorBlock resopnseCode={errorMesage.current} syncDate={syncDate.current} />
+            ) : (
+              ''
+            )}
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='zamena/:id' element={<Frame />} />

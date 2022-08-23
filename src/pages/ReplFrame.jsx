@@ -23,14 +23,12 @@ export const Frame = () => {
       title: titles[arrIdx],
     };
 
+    console.log(updatedItems, itemObj.isUpdated);
+
     element = <ReplFrameBlock key={arrIdx} {...itemObj} />;
   } else {
     element = <ReplFrameBlockEmpty />;
   }
 
-  return (
-    <div className='wrapper'>
-      {!loading ? element : <FramePreloader />}
-    </div>
-  );
+  return <div className='wrapper'>{!loading ? element : <FramePreloader />}</div>;
 };

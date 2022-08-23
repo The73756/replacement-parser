@@ -1,7 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 
 import { ThemeChecker } from '../ThemeChecker';
-import { RefreshBtn } from '../RefreshBtn';
 
 import styles from './Header.module.scss';
 
@@ -18,10 +17,7 @@ export const Header = () => {
         ) : (
           <h1>Главная </h1>
         )}
-        <div className={styles.right}>
-          <RefreshBtn />
           <ThemeChecker />
-        </div>
       </div>
     </header>
   );

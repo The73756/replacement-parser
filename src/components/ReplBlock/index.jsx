@@ -7,10 +7,7 @@ export const ReplBlock = ({ index, isUpdated, title, indexOf }) => {
     <Link
       to={`zamena/${indexOf}`}
       key={index}
-      className={`${styles.item} ${
-        // TODO: переделать стили без вот этого костыля
-        isUpdated ? styles.changed : ''
-      }`}>
+      className={`${styles.item} ${isUpdated ? styles.changed : ''}`}>
       {title}
     </Link>
   );

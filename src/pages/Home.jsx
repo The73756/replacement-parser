@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { AppContext } from '../App';
 import { ReplBlock } from '../components/ReplBlock';
@@ -9,8 +9,12 @@ import { Preloader } from '../components/ReplBlock/Preloader';
 import '../scss/main.scss';
 
 export const Home = () => {
-  const { items, loading, updatedItems, titles } = useContext(AppContext);
-  
+  const { items, loading, updatedItems, titles, checkPrevItems } = useContext(AppContext);
+
+  useEffect(() => {
+    checkPrevItems();
+  }, [checkPrevItems]);
+
   let elements = [];
 
   if (items.length) {

@@ -7,8 +7,9 @@
   padding: 12px;
   width: 50%;
   text-align: center;
-  background: var(--bg);
-  animation: error-animation 0.3s ease-out;
+  background-color: var(--bg);
+  transition: background-color var(--dur) ease-in-out;
+  animation: error-animation var(--dur) ease-out;
 
   @media (max-width: 768px) {
     width: 65%;
@@ -61,11 +62,13 @@
   left: 0;
   top: 0;
   margin-top: 0;
-  border: 2px solid #efe71a;
+  border: 2px solid var(--accent-color);
   max-width: 232px;
+  transition: border var(--dur) ease-in-out, background-color var(--dur) ease-in-out;
 
   .title {
-    color: #efe71a;
+    color: var(--accent-color);
+    transition: color var(--dur) ease-in-out;
   }
 }
 

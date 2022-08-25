@@ -77,8 +77,20 @@
   }
 }
 
+.itemPreloader {
+  display: block;
+
+  span {
+    --base-color: var(--base-preloader-color);
+    --highlight-color: var(--highlight-preloader-color);
+
+    line-height: inherit;
+  }
+}
+
 .updated {
-  border: 2px solid #efe71a;
+  border: 2px solid var(--accent-color);
+  transition: border var(--dur) ease-in-out;
 }
 
 .title {

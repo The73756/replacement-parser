@@ -10,7 +10,8 @@
 
 .updated {
   .frame {
-    border: 2px solid #efe71a;
+    border: 2px solid var(--accent-color);
+    transition: border var(--dur) ease-in-out;
   }
 
   .title {
@@ -19,7 +20,8 @@
     padding: 0;
     font-size: 20px;
     text-align: center;
-    color: #efe71a;
+    color: var(--accent-color);
+    transition: color var(--dur) ease-in-out;
   }
 }
 
@@ -27,4 +29,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.framePreloader {
+  span {
+    --base-color: var(--base-preloader-color);
+    --highlight-color: var(--highlight-preloader-color);
+
+    line-height: inherit;
+  }
 }

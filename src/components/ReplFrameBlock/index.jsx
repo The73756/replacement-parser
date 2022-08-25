@@ -2,8 +2,8 @@ import styles from './ReplFrameBlock.module.scss';
 
 export const ReplFrameBlock = ({ frameItem, isUpdated, title, descr }) => {
   return (
-    <article className={`wrapper ${isUpdated ? styles.updated : ''}`}>
-     {isUpdated ? <h1 className={styles.title}>Обновлено</h1> : ''}
+    <div className={`wrapper ${isUpdated ? styles.updated : ''}`}>
+      {isUpdated ? <h1 className={styles.title}>Обновлено</h1> : ''}
       <iframe
         className={styles.frame}
         src={`https://drive.google.com/file/d/${frameItem}/preview`}
@@ -11,6 +11,6 @@ export const ReplFrameBlock = ({ frameItem, isUpdated, title, descr }) => {
         height='100%'
         allow='autoplay'
         title={`${title}, ${descr}`}></iframe>
-    </article>
+    </div>
   );
 };

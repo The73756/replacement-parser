@@ -29,5 +29,5 @@ export const Frame = () => {
     element = <NoItems isFrame />;
   }
 
-  return <>{!loading ? element : <FramePreloader />}</>;
+  return <article className='wrapper'>{!loading ? element : <FramePreloader />}</article>;
 };

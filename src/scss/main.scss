@@ -1,27 +1,37 @@
 :root {
   --index: 1vh + 1vw;
+  --dur: 0.3s;
   --light-color: #fff;
   --dark-color: #000;
-  --primary: #070f4e;
-  --primaryT: #253df400;
-  --dur: 0.3s;
-  --bg: #d6bcd2;
   --main-color: #5eaef4;
   --text-color: #000;
   --main-text-color: #2f2d2d;
-  --linear-gradient: linear-gradient(185.25deg, #664960 -31.07%, #664960 15.87%, #9a8797 95.79%);
   --btn-color: #9a8797;
   --error-color: #f00;
+  --accent-color: #dc8400;
+  --primary: #070f4e;
+  --primaryT: #253df400;
+  --bg: #d6bcd2;
+  --linear-gradient: linear-gradient(185.25deg, #664960 -31.07%, #664960 15.87%, #9a8797 95.79%);
+
+  /* Preloader */
+  --base-preloader-color: #d6bcd2;
+  --highlight-preloader-color: #9a8797;
 }
 
 .dark {
   --main-color: #4c30ba;
   --text-color: #fff;
   --main-text-color: #b1b1b1;
-  --bg: #281e26;
   --error-color: #ffc328;
-  --linear-gradient: linear-gradient(185.25deg, #664960 -31.07%, #664960 15.87%, #9a8797 95.79%);
   --btn-color: #664960;
+  --accent-color: #efe71a;
+  --bg: #281e26;
+  --linear-gradient: linear-gradient(185.25deg, #664960 -31.07%, #664960 15.87%, #9a8797 95.79%);
+
+  /* Preloader */
+  --base-preloader-color: #281e26;
+  --highlight-preloader-color: #664960;
 }
 
 @font-face {

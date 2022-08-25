@@ -15,8 +15,6 @@ export const Home = () => {
     checkPrevItems();
   }, [checkPrevItems]);
 
-  const isEmpty = useRef(false);
-
   const elements = items.map((item, index) => {
     const itemObj = {
       index,
@@ -29,18 +27,14 @@ export const Home = () => {
     return <ReplBlock key={index} {...itemObj} />;
   });
 
-  if (!items.length && !loading) {
-    isEmpty.current = true;
-  }
-
   const skeletons = [...new Array(5)].map((item, index) => <Preloader key={index} />);
 
   return (
     <>
-      {isEmpty.current ? (
+      {!items.length && !loading ? (
         <NoItems />
       ) : (
-        <div className='items'>{!loading && !isEmpty.current ? elements : skeletons}</div>
+        <div className='items'>{!loading ? elements : skeletons}</div>
       )}
     </>
   );

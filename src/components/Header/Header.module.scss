@@ -1,14 +1,18 @@
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: relative;
   margin-top: 20px;
   margin-bottom: 80px;
-  transition: color var(--dur) ease-in-out;
 
   @media (max-width: 768px) {
     margin-bottom: 40px;
   }
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: color var(--dur) ease-in-out;
 }
 
 .prevBtn {
@@ -16,8 +20,19 @@
   padding: 5.5px 75px;
   font-size: 28px;
   color: var(--text-color);
+  -webkit-tap-highlight-color: transparent;
   background-color: var(--btn-color);
-  transition: background-color var(--dur) ease-in-out, color var(--dur) ease-in-out;
+  transition: background-color var(--dur) ease-in-out, color var(--dur) ease-in-out, box-shadow var(--dur) ease-in-out;
+
+  &:hover {
+    box-shadow: 0 2px 4px #281e26;
+  }
+
+  @media (max-width: 768px) {
+    &:hover {
+      box-shadow: none;
+    }
+  }
 
   @media (max-width: 576px) {
     padding: 10.5px 35px;

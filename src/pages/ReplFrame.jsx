@@ -29,5 +29,5 @@ export const Frame = () => {
     element = <ReplFrameBlockEmpty />;
   }
 
-  return <div className='wrapper'>{!loading ? element : <FramePreloader />}</div>;
+  return <>{!loading ? element : <FramePreloader />}</>;
 };

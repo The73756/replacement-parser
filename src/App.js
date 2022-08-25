@@ -4,7 +4,6 @@ import axios from 'axios';
 
 import { Home } from './pages/Home';
 import { Frame } from './pages/ReplFrame';
-import { ErrorBlock } from './components/ErrorBlock';
 
 import './scss/main.scss';
 import { Header } from './components/Header';
@@ -30,6 +29,9 @@ export const App = () => {
   const isCheked = useRef(false);
   const errorMesage = useRef('');
   const syncDate = useRef(localStorage.getItem('rp-sync-date'));
+
+  const errorMesageText = errorMesage.current;
+  const syncDateText = syncDate.current;
 
   const fetchItems = useCallback(async () => {
     setLoading(true);
@@ -92,16 +94,20 @@ export const App = () => {
 
   return (
     <>
-      <Header />
       <AppContext.Provider
-        value={{ items, loading, updatedItems, names, fetchItems, checkPrevItems }}>
+        value={{
+          items,
+          loading,
+          updatedItems,
+          names,
+          fetchItems,
+          checkPrevItems,
+          errorMesageText,
+          syncDateText,
+        }}>
+        <Header isError={isError} />
         <main>
           <div className='container'>
-            {isError ? (
-              <ErrorBlock resopnseCode={errorMesage.current} syncDate={syncDate.current} />
-            ) : (
-              ''
-            )}
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='zamena/:id' element={<Frame />} />

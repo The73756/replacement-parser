@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { AppContext } from '../App';
 import { ReplBlock } from '../components/ReplBlock';

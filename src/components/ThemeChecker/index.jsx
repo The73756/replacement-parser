@@ -55,7 +55,6 @@ export const ThemeChecker = () => {
           name='theme'
           value='dark'
         />
-        <div className={styles.theme__fill}></div>
         <span className={styles.theme__icon}>
           <span className={styles.theme__iconPart}></span>
           <span className={styles.theme__iconPart}></span>

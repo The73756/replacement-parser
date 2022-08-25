@@ -62,7 +62,7 @@ body {
   min-height: 100%;
   font-size: calc(var(--index) / 2);
   color: var(--text-color);
-  background-image: url("../assets/img/bg.svg");
+  background-image: url("../assets/img/bg.png");
   background-position: 0 0;
   background-size: cover;
   background-repeat: repeat-y;
@@ -107,6 +107,17 @@ a {
   justify-items: center;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 232px);
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+  }
+
+  @media (max-width: 576px) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
 }
 
 .wrapper {

@@ -5,6 +5,10 @@
   margin-top: 20px;
   margin-bottom: 80px;
   transition: color var(--dur) ease-in-out;
+
+  @media (max-width: 768px) {
+    margin-bottom: 40px;
+  }
 }
 
 .prevBtn {
@@ -14,4 +18,9 @@
   color: var(--text-color);
   background-color: var(--btn-color);
   transition: background-color var(--dur) ease-in-out, color var(--dur) ease-in-out;
+
+  @media (max-width: 576px) {
+    padding: 10.5px 35px;
+    font-size: 20px;
+  }
 }

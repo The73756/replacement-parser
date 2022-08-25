@@ -13,16 +13,38 @@
   color: #fff;
   background: var(--linear-gradient);
   filter: drop-shadow(0 2px 4px #281e26);
+
+  @media (max-width: 768px) {
+    grid-column: 1 span;
+    grid-row: auto;
+    width: 100%;
+    height: 232px;
+  }
 }
 
 .item:nth-child(4) {
   grid-column: 2 / 4;
   grid-row: 2 span;
+
+  @media (max-width: 768px) {
+    grid-column: 1 span;
+    grid-row: auto;
+  }
 }
 
 .item:nth-child(5) {
   grid-column: 4 / 6;
   grid-row: 2  2 span;
+
+  @media (max-width: 768px) {
+    grid-column: 2 span;
+    grid-row: auto;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 576px) {
+    grid-column: 1 span;
+  }
 }
 
 .changed {
@@ -37,6 +59,10 @@
   font-size: 36px;
   color: var(--text-color);
   transition: color var(--dur) ease-in-out;
+
+  @media (max-width: 576px) {
+    font-size: 30px;
+  }
 }
 
 .descr {
@@ -48,6 +74,10 @@
   -webkit-text-stroke: 2px var(--main-text-color);
   color: var(--main-text-color);
   transition: color var(--dur) ease-in-out, -webkit-text-stroke var(--dur) ease-in-out;
+
+  @media (max-width: 576px) {
+    font-size: 20px;
+  }
 }
 
 .link {

@@ -1,0 +1,41 @@
+.emptyContainer {
+  margin-top: 70px;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 24px;
+  padding: 0;
+  font-weight: 900;
+  font-size: 48px;
+  text-align: center;
+  color: var(--text-color);
+  transition: color var(--dur) ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 24px;
+  }
+}
+
+.descr {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-size: 36px;
+  text-align: center;
+  color: var(--text-color);
+  opacity: 0.8;
+  transition: color var(--dur) ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 18px;
+  }
+}

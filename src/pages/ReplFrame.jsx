@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { AppContext } from '../App';
 import { ReplFrameBlock } from '../components/ReplFrameBlock';
-import { ReplFrameBlockEmpty } from '../components/ReplFrameBlock/ReplFrameBlockEmpty';
+import { NoItems } from '../components/NoItems';
 import { FramePreloader } from '../components/ReplFrameBlock/FramePreloader';
 
 export const Frame = () => {
@@ -26,7 +26,7 @@ export const Frame = () => {
 
     element = <ReplFrameBlock key={arrIdx} {...itemObj} />;
   } else {
-    element = <ReplFrameBlockEmpty />;
+    element = <NoItems isFrame />;
   }
 
   return <>{!loading ? element : <FramePreloader />}</>;

@@ -9,7 +9,7 @@ import { Preloader } from '../components/ReplBlock/Preloader';
 import '../scss/main.scss';
 
 export const Home = () => {
-  const { items, loading, updatedItems, titles, checkPrevItems } = useContext(AppContext);
+  const { items, loading, updatedItems, names, checkPrevItems } = useContext(AppContext);
 
   useEffect(() => {
     checkPrevItems();
@@ -17,13 +17,15 @@ export const Home = () => {
 
   let elements = [];
 
+
   if (items.length) {
     elements = items.map((item, index) => {
       const itemObj = {
         index,
         indexOf: items.indexOf(item) + 1,
         isUpdated: updatedItems.includes(item),
-        title: titles[index],
+        title: names[index].title,
+        descr: names[index].descr,
       };
 
       return <ReplBlock key={index} {...itemObj} />;

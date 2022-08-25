@@ -1,26 +1,19 @@
 .theme {
   display: inline-flex;
   align-items: center;
-  margin: 20px;
   margin-left: auto;
   max-width: 85px;
   -webkit-tap-highlight-color: transparent;
 }
 
-.theme__fill,
 .theme__icon {
+  left: 0.75em;
+  top: 0.75em;
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
   transition: transform var(--dur) ease-in-out;
   pointer-events: none;
-}
-
-.theme__fill {
-  position: fixed;
-  z-index: -1;
-  display: block;
-  height: 100%;
-  background-color: var(--primary);
-  transform: translateX(-100%);
-  inset: 0;
 }
 
 .theme__icon,
@@ -33,14 +26,6 @@
 .theme__icon,
 .theme__iconPart {
   position: absolute;
-}
-
-.theme__icon {
-  left: 0.75em;
-  top: 0.75em;
-  display: block;
-  width: 1.5em;
-  height: 1.5em;
 }
 
 .theme__iconPart {
@@ -101,7 +86,7 @@
 .theme__toggle,
 .theme__toggleWrap {
   position: relative;
-  font-size: calc(var(--index) / 3.5); /* Настройка размера */
+  font-size: 15px; /* Настройка размера */
 }
 
 .theme__toggle,
@@ -117,7 +102,7 @@
   width: 6em;
   height: 3em;
   box-shadow: 0 0 0 0.125em var(--primaryT);
-  background-color: #fbedb6;
+  background-color: #9a8797;
   transition:
     background-color var(--dur) ease-in-out,
     box-shadow var(--dur) ease-in-out,
@@ -130,7 +115,7 @@
   border-radius: 50%;
   width: 2.5em;
   height: 2.5em;
-  background-color: #f4ca25;
+  background-color: #d6bcd2;
   transition:
     background-color var(--dur) ease-in-out,
     transform var(--dur) ease-in-out;
@@ -138,12 +123,12 @@
 
 .theme__toggle:focus {
   outline: transparent;
-  box-shadow: 0 0 0 0.125em var(--primary);
+  box-shadow: 0 0 0 0.125em #281e26;
 }
 
 /* cheked */
 .theme__toggle:checked {
-  background-color: #043449;
+  background-color: #664960;
 }
 
 .theme__toggle:checked::before,
@@ -152,11 +137,7 @@
 }
 
 .theme__toggle:checked::before {
-  background-color: #25b6f4;
-}
-
-.theme__toggle:checked ~ .theme__fill {
-  transform: translate(0);
+  background-color: #281e26;
 }
 
 .theme__toggle:checked ~ .theme__icon .theme__iconPart:nth-child(1) {

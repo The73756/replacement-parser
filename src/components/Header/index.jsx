@@ -12,12 +12,12 @@ export const Header = () => {
       <div className={`container ${styles.header}`}>
         {location !== '/' ? (
           <Link to='/' className={styles.prevBtn}>
-            На главную
+            Назад
           </Link>
         ) : (
-          <h1>Главная </h1>
+          ''
         )}
-          <ThemeChecker />
+        <ThemeChecker />
       </div>
     </header>
   );

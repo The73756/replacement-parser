@@ -7,7 +7,7 @@ import { ReplFrameBlockEmpty } from '../components/ReplFrameBlock/ReplFrameBlock
 import { FramePreloader } from '../components/ReplFrameBlock/FramePreloader';
 
 export const Frame = () => {
-  const { items, updatedItems, titles, loading } = useContext(AppContext);
+  const { items, updatedItems, names, loading } = useContext(AppContext);
 
   let element;
 
@@ -20,7 +20,8 @@ export const Frame = () => {
     const itemObj = {
       frameItem: item,
       isUpdated: updatedItems.includes(item),
-      title: titles[arrIdx],
+      title: names[arrIdx].title,
+      descr: names[arrIdx].descr,
     };
 
     element = <ReplFrameBlock key={arrIdx} {...itemObj} />;

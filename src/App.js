@@ -11,12 +11,12 @@ import { Header } from './components/Header';
 
 export const AppContext = createContext({});
 
-const titles = [
-  'Замена главный корпус',
-  'Замена 4 корпус',
-  'Расписание 1-2 курс',
-  'Расписание 3-4 курс',
-  'Расписание - 4 корпус',
+const names = [
+  { title: 'Замена', descr: 'главный корпус' },
+  { title: 'Замена', descr: '4 корпус' },
+  { title: 'Расписание', descr: '1-2 курс' },
+  { title: 'Расписание', descr: '3-4 курс' },
+  { title: 'Расписание', descr: '4 корпус' },
 ];
 
 export const App = () => {
@@ -29,7 +29,7 @@ export const App = () => {
 
   const isCheked = useRef(false);
   const errorMesage = useRef('');
-  const syncDate = useRef(localStorage.getItem('rp-sync-date')); //флаг обновления данных в localStorage
+  const syncDate = useRef(localStorage.getItem('rp-sync-date'));
 
   const fetchItems = useCallback(async () => {
     setLoading(true);
@@ -92,9 +92,9 @@ export const App = () => {
 
   return (
     <>
+      <Header />
       <AppContext.Provider
-        value={{ items, loading, updatedItems, titles, fetchItems, checkPrevItems }}>
-        <Header />
+        value={{ items, loading, updatedItems, names, fetchItems, checkPrevItems }}>
         <main>
           <div className='container'>
             {isError ? (

@@ -1,20 +1,17 @@
 .header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 80px;
   transition: color var(--dur) ease-in-out;
 }
 
-.right {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  gap: 20px;
-}
-
 .prevBtn {
-  border-radius: 10px;
-  padding: 10px 20px;
-  font-size: calc(var(--index) * 0.5);
-  color: #000;
-  background-color: #ccc;
+  border-radius: 26px;
+  padding: 5.5px 75px;
+  font-size: 28px;
+  color: var(--text-color);
+  background-color: var(--btn-color);
+  transition: background-color var(--dur) ease-in-out, color var(--dur) ease-in-out;
 }

@@ -5,22 +5,47 @@
   --primary: #070f4e;
   --primaryT: #253df400;
   --dur: 0.3s;
-  --bg: #fff;
+  --bg: #d6bcd2;
   --main-color: #5eaef4;
   --text-color: #000;
+  --main-text-color: #2f2d2d;
+  --linear-gradient: linear-gradient(185.25deg, #664960 -31.07%, #664960 15.87%, #9a8797 95.79%);
+  --btn-color: #9a8797;
   --error-color: #f00;
 }
 
 .dark {
   --main-color: #4c30ba;
   --text-color: #fff;
+  --main-text-color: #b1b1b1;
+  --bg: #281e26;
   --error-color: #ffc328;
+  --linear-gradient: linear-gradient(185.25deg, #664960 -31.07%, #664960 15.87%, #9a8797 95.79%);
+  --btn-color: #664960;
+}
+
+@font-face {
+  src: url("../../public/fonts/Roboto-Regular.woff2");
+  font-family: "Roboto";
+  font-weight: 400;
+}
+
+@font-face {
+  src: url("../../public/fonts/Roboto-Bold.woff2");
+  font-family: "Roboto";
+  font-weight: 700;
+}
+
+@font-face {
+  src: url("../../public/fonts/Roboto-Black.woff2");
+  font-family: "Roboto";
+  font-weight: 900;
 }
 
 html {
   height: 100%;
   box-sizing: border-box;
-  font-family: var(--font-family, sans-serif);
+  font-family: "Roboto", sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -37,6 +62,10 @@ body {
   min-height: 100%;
   font-size: calc(var(--index) / 2);
   color: var(--text-color);
+  background-image: url("../assets/img/bg.svg");
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: repeat-y;
   background-color: var(--bg);
 }
 
@@ -60,7 +89,7 @@ a {
 .container {
   margin: 0 auto;
   padding: 0 15px;
-  max-width: 1200px;
+  max-width: 1270px;
 }
 
 .dis-scroll {
@@ -75,8 +104,9 @@ a {
 
 .items {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+  justify-items: center;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 232px);
 }
 
 .wrapper {

@@ -2,13 +2,12 @@ import { Link } from 'react-router-dom';
 
 import styles from './ReplBlock.module.scss';
 
-export const ReplBlock = ({ index, isUpdated, title, indexOf }) => {
+export const ReplBlock = ({ index, isUpdated, title, descr, indexOf }) => {
   return (
-    <Link
-      to={`zamena/${indexOf}`}
-      key={index}
-      className={`${styles.item} ${isUpdated ? styles.changed : ''}`}>
-      {title}
-    </Link>
+    <article className={`${styles.item} ${isUpdated ? styles.changed : ''}`}>
+      <h2 className={styles.title}>{title}</h2>
+      <p className={styles.descr}>{descr}</p>
+      <Link to={`zamena/${indexOf}`} key={index} className={styles.link}></Link>
+    </article>
   );
 };

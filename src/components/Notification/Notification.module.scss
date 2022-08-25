@@ -56,6 +56,19 @@
   }
 }
 
+.updWrapper {
+  position: relative;
+  left: 0;
+  top: 0;
+  margin-top: 0;
+  border: 2px solid #efe71a;
+  max-width: 232px;
+
+  .title {
+    color: #efe71a;
+  }
+}
+
 @keyframes error-animation {
   0% {
     transform: translateX(-20%);

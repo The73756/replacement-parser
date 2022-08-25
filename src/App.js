@@ -105,7 +105,7 @@ export const App = () => {
           errorMesageText,
           syncDateText,
         }}>
-        <Header isError={isError} />
+        <Header isError={isError} updatedItems={updatedItems} />
         <main>
           <div className='container'>
             <Routes>

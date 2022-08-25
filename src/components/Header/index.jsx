@@ -1,11 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
 
 import { ThemeChecker } from '../ThemeChecker';
-import { ErrorBlock } from '../ErrorBlock';
+import { ErrorBlock } from '../Notification/ErrorBlock';
+import { UpdatedBlock } from '../Notification/UpdatedBlock';
 
 import styles from './Header.module.scss';
 
-export const Header = ({ isError }) => {
+export const Header = ({ isError, updatedItems }) => {
   const location = useLocation().pathname;
 
   const isHome = location === '/';
@@ -20,9 +21,10 @@ export const Header = ({ isError }) => {
         ) : (
           ''
         )}
+        {updatedItems.length && isHome ? <UpdatedBlock isHome={isHome} /> : ''}
         <ThemeChecker />
       </div>
-      <div className='container'>{isError ? <ErrorBlock isHome={isHome} /> : ''}</div>
+      <div className='container'>{isError ? <ErrorBlock isHome={isHome} /> : ''} </div>
     </header>
   );
 };

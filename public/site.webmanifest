@@ -1,6 +1,7 @@
 {
   "name": "Замена ЧТОТиБ",
   "short_name": "Замена",
+  "start_url": "/",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

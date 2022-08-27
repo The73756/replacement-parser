@@ -110,7 +110,7 @@ export const App = () => {
           <div className='container'>
             <Routes>
               <Route path='/' element={<Home />} />
-              <Route path='zamena/:id' element={<Frame />} />
+              <Route path='/:id' element={<Frame />} />
             </Routes>
           </div>
         </main>

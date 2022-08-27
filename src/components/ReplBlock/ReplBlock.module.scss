@@ -13,7 +13,7 @@
   max-height: 232px;
   color: #fff;
   background: var(--linear-gradient);
-  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition: box-shadow var(--dur) ease-in-out, transform var(--dur) ease-in-out, border var(--dur) ease-in-out;
 
   &:hover {
     box-shadow: inset -2px -4px 4px #664960;
@@ -90,7 +90,6 @@
 
 .updated {
   border: 2px solid var(--accent-color);
-  transition: border var(--dur) ease-in-out;
 }
 
 .title {
@@ -110,12 +109,10 @@
 .descr {
   margin: 0;
   padding: 0;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 24px;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px var(--main-text-color);
   color: var(--main-text-color);
-  transition: color var(--dur) ease-in-out, -webkit-text-stroke var(--dur) ease-in-out;
+  transition: color var(--dur) ease-in-out;
 
   @media (max-width: 576px) {
     font-size: 18px;

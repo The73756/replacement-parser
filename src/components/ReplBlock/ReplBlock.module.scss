@@ -16,7 +16,7 @@
   transition: box-shadow var(--dur) ease-in-out, transform var(--dur) ease-in-out, border var(--dur) ease-in-out;
 
   &:hover {
-    box-shadow: inset -2px -4px 4px #664960;
+    box-shadow: var(--hover-item);
     transform: translateY(-5px);
   }
 

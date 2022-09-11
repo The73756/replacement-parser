@@ -19,9 +19,9 @@ const names = [
 ];
 
 export const App = () => {
-  const [items, setItems] = useState([]); //список ХЕШЕЙ ссылок на замену
-  const [updatedItems, setUpdatedItems] = useState([]); //список ХЕШЕЙ измененных ссылок
-  const [prevItems, setPrevItems] = useState(localStorage.getItem('rp-data')); //JSON ХЕШЕЙ сохраненных в localStorage ссылок
+  const [items, setItems] = useState([]); //список ссылок на замену без /view?...
+  const [updatedItems, setUpdatedItems] = useState([]); //список измененных ссылок
+  const [prevItems, setPrevItems] = useState(localStorage.getItem('rp-data')); //JSON сохраненных в localStorage ссылок
   const [loading, setLoading] = useState(true);
   const [isFirstLoad, setIsFirstLoad] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -39,8 +39,9 @@ export const App = () => {
     try {
       const { data } = await axios.get('/php/parser.php'); // при разработке заменить на */response.json*
       if (data.length) {
-        const response = data.map((str) => str.split('d/')[1].split('/')[0]); // /(?<=d\/)(.*?)(?=\/)/ - не работает в сафари!!!!
+        const response = data.map((str) => str.split('/view')[0]);
         const date = new Date().toLocaleString();
+        console.log(response);
 
         setItems(response);
         localStorage.setItem('rp-sync-date', date);

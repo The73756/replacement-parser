@@ -6,8 +6,8 @@ export const ReplFrameBlock = ({ frameItem, isUpdated, title, descr }) => {
       {isUpdated ? <h1 className={styles.title}>Обновлено</h1> : ''}
       <iframe
         className={styles.frame}
-        src={`https://drive.google.com/file/d/${frameItem}/preview`}
-        width='100%' //drive.google.com/file/d/{uniq.id}/preview
+        src={`${frameItem}/preview`}
+        width='100%' //{link}/preview
         height='100%'
         allow='autoplay'
         title={`${title}, ${descr}`}></iframe>

@@ -39,7 +39,7 @@ export const Home = () => {
     return <ReplBlock key={index} {...itemObj} />;
   });
 
-  const skeletons = [...new Array(5)].map((item, index) => <Preloader key={index} />);
+  const skeletons = [...new Array(6)].map((item, index) => <Preloader key={index} />);
 
   return (
     <>

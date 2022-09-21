@@ -16,13 +16,25 @@ export const Home = () => {
   }, [checkPrevItems]);
 
   const elements = items.map((item, index) => {
-    const itemObj = {
+    let itemObj = {
       index,
       indexOf: items.indexOf(item) + 1,
       isUpdated: updatedItems.includes(item),
       title: names[index].title,
       descr: names[index].descr,
     };
+
+    if (item.includes('chtotib.ru/schedule')) {
+      itemObj = {
+        index,
+        indexOf: items.indexOf(item) + 1,
+        isUpdated: updatedItems.includes(item),
+        title: names[index].title,
+        descr: names[index].descr,
+        isLink: true,
+        link: item,
+      };
+    }
 
     return <ReplBlock key={index} {...itemObj} />;
   });

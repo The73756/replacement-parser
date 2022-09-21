@@ -18,7 +18,7 @@ export const Frame = () => {
     const item = items[arrIdx];
 
     const itemObj = {
-      frameItem: item,
+      frameItem: item.split('/view')[0],
       isUpdated: updatedItems.includes(item),
       title: names[arrIdx].title,
       descr: names[arrIdx].descr,

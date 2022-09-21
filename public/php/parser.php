@@ -26,7 +26,7 @@ function curlGetPage($url, $referer = 'https://google.com/')
 
 $page = curlGetPage('https://www.chtotib.ru/studentu/');
 $document = phpQuery::newDocument($page);
-$posts = $document->find('a[href^=https://drive.google.com/]');
+$posts = $document->find('td a');
 $resultArr = [];
 
 foreach($posts as $post) {

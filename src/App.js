@@ -15,7 +15,8 @@ const names = [
   { title: 'Замена', descr: '4 корпус' },
   { title: 'Расписание', descr: '1-2 курс' },
   { title: 'Расписание', descr: '3-4 курс' },
-  { title: 'Расписание', descr: '4 корпус' },
+  { title: 'Ссылка', descr: '1-2 курс 4 корпус' },
+  { title: 'Расписание', descr: '3-4 курс 4 корпус' },
 ];
 
 export const App = () => {
@@ -39,11 +40,8 @@ export const App = () => {
     try {
       const { data } = await axios.get('/php/parser.php'); // при разработке заменить на */response.json*
       if (data.length) {
-        const response = data.map((str) => str.split('/view')[0]);
-        const date = new Date().toLocaleString();
-        console.log(response);
-
-        setItems(response);
+        const date = new Date().toLocaleString(); // (str) => str.split('/view')[0]
+        setItems(data);
         localStorage.setItem('rp-sync-date', date);
       } else {
         setIsError(true);
@@ -51,7 +49,7 @@ export const App = () => {
       }
     } catch (error) {
       setIsError(true);
-      errorMesage.current = `${error.response.status}. ${error.response.statusText}`;
+      errorMesage.current = `${error.data.status}. ${error.data.statusText}`;
       console.error(error);
     } finally {
       setLoading(false);

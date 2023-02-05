@@ -116,9 +116,7 @@
   width: 2.5em;
   height: 2.5em;
   background-color: #d6bcd2;
-  transition:
-    background-color var(--dur) ease-in-out,
-    transform var(--dur) ease-in-out;
+  transition: background-color var(--dur) ease-in-out, transform var(--dur) ease-in-out;
 }
 
 /* cheked */

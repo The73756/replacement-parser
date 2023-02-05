@@ -7,7 +7,7 @@ export const ThemeChecker = () => {
   const [theme, setTheme] = useState(currentTheme);
   const checkbox = useRef(null);
   const isMount = useRef(false);
-  const isChecked = theme === 'dark' ? true : false;
+  const isChecked = theme === 'dark';
 
   useEffect(() => {
     if (currentTheme) {
@@ -42,18 +42,19 @@ export const ThemeChecker = () => {
   }, [theme]);
 
   return (
-    <label htmlFor='theme' className={styles.theme}>
+    <label htmlFor="theme" className={styles.theme}>
       <span className={styles.theme__toggleWrap}>
         <input
-          type='checkbox'
+          type="checkbox"
           ref={checkbox}
+          aria-label="Переключатель темы"
           checked={isChecked}
           onChange={handleChangeTheme}
-          id='theme'
+          id="theme"
           className={styles.theme__toggle}
-          role='switch'
-          name='theme'
-          value='dark'
+          role="switch"
+          name="theme"
+          value="dark"
         />
         <span className={styles.theme__icon}>
           <span className={styles.theme__iconPart}></span>

@@ -1,5 +1,4 @@
 import { Link, useLocation } from 'react-router-dom';
-
 import { ThemeChecker } from '../ThemeChecker';
 import { ErrorBlock } from '../Notification/ErrorBlock';
 import { UpdatedBlock } from '../Notification/UpdatedBlock';
@@ -15,7 +14,7 @@ export const Header = ({ isError, updatedItems }) => {
     <header className={styles.header}>
       <div className={`container ${styles.headerContainer}`}>
         {!isHome ? (
-          <Link to='/' className={styles.prevBtn}>
+          <Link to="/" className={styles.prevBtn}>
             Назад
           </Link>
         ) : (
@@ -24,7 +23,7 @@ export const Header = ({ isError, updatedItems }) => {
         {updatedItems.length && isHome ? <UpdatedBlock isHome={isHome} /> : ''}
         <ThemeChecker />
       </div>
-      <div className='container'>{isError ? <ErrorBlock isHome={isHome} /> : ''} </div>
+      <div className="container">{isError ? <ErrorBlock isHome={isHome} /> : ''} </div>
     </header>
   );
 };

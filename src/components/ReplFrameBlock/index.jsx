@@ -7,9 +7,9 @@ export const ReplFrameBlock = ({ frameItem, isUpdated, title, descr }) => {
       <iframe
         className={styles.frame}
         src={`${frameItem}/preview`}
-        width='100%' //{link}/preview
-        height='100%'
-        allow='autoplay'
+        width="100%" //{link}/preview
+        height="100%"
+        allow="autoplay"
         title={`${title}, ${descr}`}></iframe>
     </div>
   );

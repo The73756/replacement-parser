@@ -22,7 +22,10 @@
   color: var(--text-color);
   -webkit-tap-highlight-color: transparent;
   background-color: var(--btn-color);
-  transition: background-color var(--dur) ease-in-out, color var(--dur) ease-in-out, box-shadow var(--dur) ease-in-out;
+  transition:
+    background-color var(--dur) ease-in-out,
+    color var(--dur) ease-in-out,
+    box-shadow var(--dur) ease-in-out;
 
   &:hover {
     box-shadow: var(--hover-button);

@@ -1,12 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect, useState, createContext, useRef, useCallback } from 'react';
 import axios from 'axios';
-
 import { Home } from './pages/Home';
 import { Frame } from './pages/ReplFrame';
+import { Header } from './components/Header';
 
 import './scss/main.scss';
-import { Header } from './components/Header';
 
 export const AppContext = createContext({});
 
@@ -27,11 +26,10 @@ export const App = () => {
   const [isFirstLoad, setIsFirstLoad] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const isCheked = useRef(false);
-  const errorMesage = useRef('');
+  const isChecked = useRef(false);
+  const errorMessage = useRef('');
   const syncDate = useRef(localStorage.getItem('rp-sync-date'));
-
-  const errorMesageText = errorMesage.current;
+  const errorMessageText = errorMessage.current;
   const syncDateText = syncDate.current;
 
   const fetchItems = useCallback(async () => {
@@ -45,11 +43,11 @@ export const App = () => {
         localStorage.setItem('rp-sync-date', date);
       } else {
         setIsError(true);
-        errorMesage.current = '204. No Content'; // По спеке не ошибка
+        errorMessage.current = '204. No Content'; // По спеке не ошибка
       }
     } catch (error) {
       setIsError(true);
-      errorMesage.current = `${error.data.status}. ${error.data.statusText}`;
+      errorMessage.current = `${error.data.status}. ${error.data.statusText}`;
       console.error(error);
     } finally {
       setLoading(false);
@@ -74,16 +72,16 @@ export const App = () => {
       const updData = items.filter((item) => !prevDataArr.includes(item));
 
       setUpdatedItems(!isFirstLoad ? updData : []); //что бы при первой загрузке все не выделялось как измененное
-      isCheked.current = true;
+      isChecked.current = true;
     }
 
-    if (isCheked.current) {
+    if (isChecked.current) {
       localStorage.setItem('rp-data', JSON.stringify(items));
     }
   }, [isFirstLoad, items, prevItems]);
 
   useEffect(() => {
-    fetchItems();
+    void fetchItems();
   }, [fetchItems]);
 
   useEffect(() => {
@@ -100,15 +98,15 @@ export const App = () => {
           names,
           fetchItems,
           checkPrevItems,
-          errorMesageText,
+          errorMessageText,
           syncDateText,
         }}>
         <Header isError={isError} updatedItems={updatedItems} />
         <main>
-          <div className='container'>
+          <div className="container">
             <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/:id' element={<Frame />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/:id" element={<Frame />} />
             </Routes>
           </div>
         </main>

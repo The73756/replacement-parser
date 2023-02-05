@@ -1,9 +1,7 @@
 import { useContext, useEffect } from 'react';
-
 import { AppContext } from '../App';
 import { ReplBlock } from '../components/ReplBlock';
 import { NoItems } from '../components/NoItems';
-
 import { Preloader } from '../components/ReplBlock/Preloader';
 
 import '../scss/main.scss';
@@ -46,7 +44,7 @@ export const Home = () => {
       {!items.length && !loading ? (
         <NoItems />
       ) : (
-        <div className='items'>{!loading ? elements : skeletons}</div>
+        <div className="items">{!loading ? elements : skeletons}</div>
       )}
     </>
   );

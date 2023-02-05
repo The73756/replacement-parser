@@ -38,28 +38,10 @@
   --highlight-preloader-color: #664960;
 }
 
-@font-face {
-  src: url("../../public/fonts/Roboto-Regular.woff2");
-  font-family: "Roboto";
-  font-weight: 400;
-}
-
-@font-face {
-  src: url("../../public/fonts/Roboto-Bold.woff2");
-  font-family: "Roboto";
-  font-weight: 700;
-}
-
-@font-face {
-  src: url("../../public/fonts/Roboto-Black.woff2");
-  font-family: "Roboto";
-  font-weight: 900;
-}
-
 html {
   height: 100%;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "Arial", "Roboto", sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 
